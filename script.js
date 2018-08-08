@@ -44,10 +44,15 @@ function httpGetAsync(url, callback) {
 function saveBook() {
 	//localStorage.setItem(book.isbn, JSON.stringify(book));
   isbn = book.isbn;
+  var lib = JSON.parse(localStorage.getItem('library'));
 	console.log(book.title);
-  library.push(book);
-  console.log(library);
-  localStorage.setItem("library", JSON.stringify(library));
+  localStorage.setItem("book", JSON.stringify(book));
+  lib.push(book);
+  console.log(lib);
+  localStorage.setItem("library", JSON.stringify(lib));
+
+  document.getElementById("success").add('visible');
+
 }
 
 function getBook() {
@@ -68,8 +73,64 @@ function displayAll() {
      //document.getElementById("bookTitle").innerHTML += " " + lib[i].title;
       var elem = document.createElement("img");
       elem.src = lib[i].thumb;
-      elem.padding = "50px";
+      elem.width = 128;
+      elem.height = 187;
       document.getElementById("imagedings").appendChild(elem);
   }
  
 }
+
+
+function blobToFile(theBlob, fileName){
+    //A Blob() is almost a File() - it's just missing the two properties below which we will add
+    theBlob.lastModifiedDate = new Date();
+    theBlob.name = fileName;
+    return theBlob;
+}
+
+
+function exportLib() {
+
+
+  //var blob = new Blob(["test text"], {type: "text/plain; charset: utf-8"});
+
+  //console.log("Click");
+  //var myFile = blobToFile(blob, "file.txt");
+  //var url = URL.createObjectURL(myFile);
+  //console.log(url);
+
+  //var exporting =document.getElementById("export");
+
+
+
+
+  //var lul = document.getElementById("download");
+  //lul.href = url;
+  //lul.click();
+
+  //exporting.download = myFile;
+  var lib = JSON.parse(localStorage.getItem('library'));
+  var data = { lib, d: new Date() },
+    fileName = "library.json";
+
+saveData(data, fileName);
+
+}
+
+
+
+var saveData = (function () {
+    var a = document.createElement("a");
+    document.body.appendChild(a);
+    a.style = "display: none";
+    return function (data, fileName) {
+        var json = JSON.stringify(data),
+            blob = new Blob([json], {type: "octet/stream"}),
+            url = window.URL.createObjectURL(blob);
+        a.href = url;
+        a.download = fileName;
+        a.click();
+        window.URL.revokeObjectURL(url);
+    };
+}());
+
