@@ -51,6 +51,7 @@ function saveBook() {
   console.log(lib);
   localStorage.setItem("library", JSON.stringify(lib));
 
+
   document.getElementById("success").classList.remove('invisible');
 
 }
@@ -71,6 +72,7 @@ function displayAll() {
 
   for(i=0; i < lib.length; i++) {
      //document.getElementById("bookTitle").innerHTML += " " + lib[i].title;
+
       var elem = document.createElement("img");
       elem.src = lib[i].thumb;
       elem.width = 128;
@@ -134,3 +136,8 @@ var saveData = (function () {
     };
 }());
 
+
+var lib = JSON.parse(localStorage.getItem('library'));
+var counter = lib.length;
+  console.log(counter);
+  document.getElementById("allCounter").innerHTML = counter;
