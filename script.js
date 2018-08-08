@@ -66,9 +66,7 @@ function displayAll() {
   
   var lib = JSON.parse(localStorage.getItem('library'));
   //console.log(lib[1].title);
-
-
- 
+  
 
   for(i=0; i < lib.length; i++) {
      //document.getElementById("bookTitle").innerHTML += " " + lib[i].title;
@@ -141,3 +139,21 @@ var lib = JSON.parse(localStorage.getItem('library'));
 var counter = lib.length;
   console.log(counter);
   document.getElementById("allCounter").innerHTML = counter;
+
+
+function search() {
+
+  var lib = JSON.parse(localStorage.getItem('library'));
+  var val = document.getElementById('searchBook').value;
+  console.log(val);  
+
+  for(i = 0; i < lib.length; i++) {
+
+    if (lib[i].title.includes(val) || val === lib[i].title) {
+      console.log(lib[i].title);
+      break;
+
+      //break;
+    }
+  }
+}

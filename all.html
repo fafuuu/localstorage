@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="favicon.png">
 
-    <title>Dashboard Template for Bootstrap</title>
+    <title>Library Management System</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -19,11 +19,12 @@
 
   <body onload="displayAll()">
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.html">Library Management Tool</a>
-      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+      <img src="book_red.png" width="32" height="32" />
+      <a class="navbar-brand col-sm-3 col-md-2 bg-dark" href="index.html">Library Management System</a>
+      <input class="form-control form-control-dark w-100" type="text" id="searchBook" placeholder="Search" aria-label="Search">
+      <button type="button" class="btn btn-primary" onclick="search()">Search</button>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Sign out</a>
         </li>
       </ul>
     </nav>
@@ -127,6 +128,29 @@
       
     </div>
   </div>
+
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="media">
+              <div class="media-left">
+                <img src="http://books.google.com/books/content?id=xNY9DZm-seYC&printsec=frontcover&img=1&zoom=5&source=gbs_api" />
+
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">Media heading</h4>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+              </div>
+            </div>
+
+        </div>
+    </div>
+  </div>
+
+
+
+
 
 
 
