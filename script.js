@@ -51,7 +51,7 @@ function saveBook() {
   console.log(lib);
   localStorage.setItem("library", JSON.stringify(lib));
 
-  document.getElementById("success").add('visible');
+  document.getElementById("success").classList.remove('invisible');
 
 }
 
